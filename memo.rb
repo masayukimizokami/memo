@@ -32,9 +32,11 @@ elsif memo_type  == 2
     
     puts "”メモしたい内容を記入してください”"  #条件がtrueの場合実行される
     puts "”完了したらCtrl ＋　Dをおします。”"
-  memo_text = gets
-
-  if memo_text == "コントロール＋D"
+    message = gets.chomp
+    File.open("#{memo}.csv","a"){|f|
+    f.write("#{message}")
+    }
+  if message = element.send_keys(:control,'d')
     puts "解除”"  #条件がtrueの場合実行される
   else 
       puts "for文で永遠に戻しつつcsvへ"  #条件がfalseの場合実行される
