@@ -12,12 +12,10 @@ if memo_type  == 1
   puts "”メモしたい内容を記入してください”" 
   puts "”完了したらCtrl ＋　Dをおします。”"
   
-  while 1 == 1 do
-    message = gets.to_s
-    File.open("#{memo}.csv","a"){|f|
-    f.write("#{message}")
-    }
-  end
+  attrs = Array.new
+   while line = $stdin.gets
+    attrs << line.chomp.split
+   end
 
 elsif memo_type  == 2
     puts "編集したいファイルを入力して下さい"  
@@ -26,17 +24,20 @@ elsif memo_type  == 2
     
     puts "”編集したい内容を記入してください”"  
     puts "”完了したらCtrl ＋　Dをおします。”"
-     
-   while message != element.send_keys(:control,'d') do
-    message = gets.to_s
-    File.open("#{memo}.csv","a"){|f|
-    f.write("#{message}")
-    }
-   end 
+   
+        attrs = Array.new
+        while line = $stdin.gets
+         attrs << line.chomp.split
+        end
+    
 else
     puts "１か２を記入してください"  #条件がfalseの場合実行される
 end
 
- 
+next_text = true
+
+while next_text
+  next_text = re_text
+end
 
 
